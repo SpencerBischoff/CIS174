@@ -1,0 +1,56 @@
+﻿@model List<Student>
+
+@{var id = ViewBag.id;}
+
+@if (id >= 8)
+{
+    <h4>Hello Admin</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Student in Model)
+            {
+            <tr>
+                <td>@Student.StudentId</td>
+                <td>@Student.FirstName</td>
+                <td>@Student.LastName</td>
+                <td>@Student.Grade</td>
+            </tr>
+            }
+        </tbody>
+        </table>
+        }
+        else if (id > 2 && id < 8)
+        {
+        <h5>List of Students:</h5>
+            <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Student in Model)
+            {
+            <tr>
+                <td>@Student.StudentId</td>
+                <td>@Student.FirstName</td>
+                <td>@Student.LastName</td>
+            </tr>
+            }
+        </tbody>
+        </table>
+        }
+        else
+        {
+        <h3>You do not have a sufficient access level to view this data.</h3>
+        }
